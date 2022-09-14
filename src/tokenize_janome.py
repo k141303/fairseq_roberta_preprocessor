@@ -16,7 +16,6 @@ import multiprocessing as multi
 def load_args():
     parser = argparse.ArgumentParser(description="CirrusDumpをjanomeでトークナイズ")
     parser.add_argument("cirrus_path", help="CirrusDumpのパス")
-    parser.add_argument("--output_dir", default="cache/janome", help="CirrusDumpのパス")
     parser.add_argument("--output_path", default="cache/janome.txt", help="CirrusDumpのパス")
     return parser.parse_args()
 
@@ -49,8 +48,6 @@ def tokenize(data):
 
 def main():
     args = load_args()
-
-    os.makedirs(args.output_dir, exist_ok=True)
 
     raw_data = []
     with gzip.open(args.cirrus_path, mode="rb") as f, \

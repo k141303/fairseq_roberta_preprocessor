@@ -1,2 +1,3 @@
 janome
 subword_nmt
+fairseq
