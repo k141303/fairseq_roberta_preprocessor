@@ -45,13 +45,6 @@ def tokenize(data):
 
     data = [{"_id": k, "tokens": v} for k, v in data.items()]
 
-    """
-    with open(output_path, "w") as f:
-        j_dumps = lambda x: json.dumps(x, ensure_ascii=False)
-        dumps = map(j_dumps, data)
-        f.write("\n".join(dumps))
-    """
-
     return [d["tokens"] for d in data]
 
 def main():
@@ -66,8 +59,6 @@ def main():
         cnt = 0
         for line in f:
             raw_data.append(line)
-            if len(raw_data) >= 20000:
-                break
             t.update()
 
     tasks = []
