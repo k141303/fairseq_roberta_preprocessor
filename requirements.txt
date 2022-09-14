@@ -1,0 +1,2 @@
+janome
+subword_nmt
