@@ -66,11 +66,11 @@ def main():
         tasks.append(sub_data)
 
     with Pool(multi.cpu_count()-1) as p, \
-        tqdm.tqdm(total=len(tasks)) as t, \
-        open(args.output_path, "w") as f:
+        tqdm.tqdm(total=len(tasks)) as t:
         for text in p.imap(tokenize, tasks):
             t.update()
-            f.write("\n".join(text) + "\n")
+            with open(args.output_path, "a") as f:
+                f.write("\n".join(text) + "\n")
 
 if __name__ == "__main__":
     main()
