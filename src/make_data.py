@@ -13,7 +13,7 @@ import tqdm
 
 def load_args():
     parser = argparse.ArgumentParser(description="janomeとbpeでトークナイズしたデータから語彙をカウントし、語彙idに置き換え")
-    parser.add_argument("data_path", help="CirrusDumpのパス")
+    parser.add_argument("data_path", help="トークナイズ済みCirrusDumpのパス")
     parser.add_argument("--output_dir", default="data", help="書き出し先")
     parser.add_argument("--vocab_path", default="data/vocab.json", help="語彙ファイル保存先")
     parser.add_argument("--fairseq_vocab_path", default="data/dict.txt", help="fairseq用語彙ファイル保存先")
